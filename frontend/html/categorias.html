@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion de Categorias</title>
+</head>
+<body>
+  <header>
+    <h1>Sistema de Gestion de Productos</h1>
+    <p>Importaciones Impacto S.A.C.</p>
+  </header>
+
+  <nav aria-label="Navegacion principal">
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="categorias.html">Categorias</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="proveedores.html">Proveedores</a></li>
+      <li><a href="empleados.html">Empleados</a></li>
+      <li><a href="usuarios.html">Usuarios</a></li>
+      <li><a href="roles.html">Roles</a></li>
+      <li><a href="compras.html">Compras</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="inventario.html">Inventario</a></li>
+      <li><a href="reportes.html">Reportes</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <header>
+        <h2>Modulo de Categorias</h2>
+        <p>Registro y consulta de categorias de productos.</p>
+      </header>
+
+      <div>
+        <button type="reset" form="formCategoria">Nuevo</button>
+        <form action="dashboard.html" method="get">
+          <button type="submit">Volver</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <h2>Buscar Categoria</h2>
+
+      <!-- Aqui se conectara la busqueda con el controlador de Categorias en ASP.NET Core. -->
+      <form action="#" method="get">
+        <div>
+          <label for="buscarCategoria">ID o descripcion</label>
+          <input type="search" id="buscarCategoria" name="buscarCategoria" placeholder="Ingrese dato de busqueda">
+        </div>
+
+        <button type="submit">Buscar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Registrar Categoria</h2>
+
+      <!-- Aqui se enviaran los datos al backend ASP.NET Core para registrar o actualizar categorias. -->
+      <form id="formCategoria" action="#" method="post">
+        <fieldset>
+          <legend>Datos de la categoria</legend>
+
+          <div>
+            <label for="id">ID Categoria</label>
+            <input type="text" id="id" name="id" maxlength="100" placeholder="Ejemplo: CAT001" required>
+          </div>
+
+          <div>
+            <label for="descripcion">Descripcion</label>
+            <input type="text" id="descripcion" name="descripcion" maxlength="100" required>
+          </div>
+        </fieldset>
+
+        <div>
+          <button type="submit">Guardar</button>
+          <button type="button">Editar</button>
+          <button type="button">Eliminar</button>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <h2>Listado de Categorias</h2>
+
+      <!-- Esta tabla sera llenada luego con datos obtenidos desde ASP.NET Core y SQL Server. -->
+      <table>
+        <caption>Categorias registradas en el sistema</caption>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CAT001</td>
+            <td>Accesorios de computadora</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CAT002</td>
+            <td>Cables y conectores</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CAT003</td>
+            <td>Equipos electronicos</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>SistemaVentasFinal - Modulo de categorias</p>
+  </footer>
+</body>
+</html>

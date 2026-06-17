@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion de Productos</title>
+</head>
+<body>
+  <header>
+    <h1>Sistema de Gestion de Productos</h1>
+    <p>Importaciones Impacto S.A.C.</p>
+  </header>
+
+  <nav aria-label="Navegacion principal">
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="categorias.html">Categorias</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="proveedores.html">Proveedores</a></li>
+      <li><a href="empleados.html">Empleados</a></li>
+      <li><a href="usuarios.html">Usuarios</a></li>
+      <li><a href="roles.html">Roles</a></li>
+      <li><a href="compras.html">Compras</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="inventario.html">Inventario</a></li>
+      <li><a href="reportes.html">Reportes</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <header>
+        <h2>Modulo de Productos</h2>
+        <p>Registro y consulta de productos del sistema.</p>
+      </header>
+
+      <div>
+        <button type="reset" form="formProducto">Nuevo</button>
+        <form action="dashboard.html" method="get">
+          <button type="submit">Volver</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <h2>Buscar Producto</h2>
+
+      <!-- Aqui se conectara la busqueda con el controlador de Productos en ASP.NET Core. -->
+      <form action="#" method="get">
+        <div>
+          <label for="buscarProducto">Nombre, codigo o categoria</label>
+          <input type="search" id="buscarProducto" name="buscarProducto" placeholder="Ingrese dato de busqueda">
+        </div>
+
+        <button type="submit">Buscar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Registrar Producto</h2>
+
+      <!-- Aqui se enviaran los datos al backend ASP.NET Core para registrar o actualizar productos. -->
+      <form id="formProducto" action="#" method="post">
+        <fieldset>
+          <legend>Datos del producto</legend>
+
+          <div>
+            <label for="id">ID Producto</label>
+            <input type="text" id="id" name="id" maxlength="100" placeholder="Ejemplo: PROD001" required>
+          </div>
+
+          <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" maxlength="100" required>
+          </div>
+
+          <div>
+            <label for="descripcion">Descripcion</label>
+            <textarea id="descripcion" name="descripcion" maxlength="150" rows="4"></textarea>
+          </div>
+
+          <div>
+            <label for="precio_compra">Precio de compra</label>
+            <input type="number" id="precio_compra" name="precio_compra" min="0" step="0.01">
+          </div>
+
+          <div>
+            <label for="precio_venta">Precio de venta</label>
+            <input type="number" id="precio_venta" name="precio_venta" min="0" step="0.01">
+          </div>
+
+          <div>
+            <label for="stock">Stock</label>
+            <input type="number" id="stock" name="stock" min="0" step="1">
+          </div>
+
+          <div>
+            <label for="idCategoria">ID Categoria</label>
+            <input type="text" id="idCategoria" name="idCategoria" maxlength="100" placeholder="Ejemplo: CAT001">
+          </div>
+        </fieldset>
+
+        <div>
+          <button type="submit">Guardar</button>
+          <button type="button">Editar</button>
+          <button type="button">Eliminar</button>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <h2>Listado de Productos</h2>
+
+      <!-- Esta tabla sera llenada luego con datos obtenidos desde ASP.NET Core y SQL Server. -->
+      <table>
+        <caption>Productos registrados en el sistema</caption>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Precio Compra</th>
+            <th scope="col">Precio Venta</th>
+            <th scope="col">Stock</th>
+            <th scope="col">ID Categoria</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PROD001</td>
+            <td>Mouse inalambrico</td>
+            <td>Mouse optico USB para oficina</td>
+            <td>25.00</td>
+            <td>39.90</td>
+            <td>30</td>
+            <td>CAT001</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>PROD002</td>
+            <td>Teclado multimedia</td>
+            <td>Teclado USB en espanol</td>
+            <td>35.00</td>
+            <td>55.00</td>
+            <td>18</td>
+            <td>CAT001</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>PROD003</td>
+            <td>Cable HDMI</td>
+            <td>Cable HDMI de alta velocidad</td>
+            <td>12.50</td>
+            <td>24.90</td>
+            <td>45</td>
+            <td>CAT002</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>SistemaVentasFinal - Modulo de productos</p>
+  </footer>
+</body>
+</html>

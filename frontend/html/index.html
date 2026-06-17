@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de Sesion</title>
+</head>
+<body>
+  <header>
+    <h1>Sistema de Gestion de Productos</h1>
+    <p>Importaciones Impacto S.A.C.</p>
+  </header>
+
+  <main>
+    <section>
+      <header>
+        <h2>Bienvenido al Sistema</h2>
+        <p>Gestion de productos, compras, ventas e inventario de Importaciones Impacto S.A.C.</p>
+      </header>
+    </section>
+
+    <section>
+      <header>
+        <h2>Iniciar Sesion</h2>
+        <p>Ingrese sus credenciales para acceder al sistema.</p>
+      </header>
+
+      <!-- Aqui se validaran las credenciales con el controlador de Usuarios en ASP.NET Core. -->
+      <form action="dashboard.html" method="get">
+        <fieldset>
+          <legend>Datos de acceso</legend>
+
+          <div>
+            <label for="usuario">Usuario</label>
+            <input type="text" id="usuario" name="usuario" maxlength="50" placeholder="Ingrese su usuario" required>
+          </div>
+
+          <div>
+            <label for="contrasena">Contrasena</label>
+            <input type="password" id="contrasena" name="contrasena" maxlength="100" placeholder="Ingrese su contrasena" required>
+          </div>
+        </fieldset>
+
+        <div>
+          <button type="submit">Ingresar</button>
+          <button type="reset">Limpiar</button>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <h2>Opciones de Usuario</h2>
+
+      <nav aria-label="Opciones de acceso">
+        <ul>
+          <li><a href="usuarios.html">Crear nuevo usuario</a></li>
+          <li><a href="cambiar-contrasena.html">Cambiar contrase&ntilde;a</a></li>
+        </ul>
+      </nav>
+    </section>
+  </main>
+
+  <footer>
+    <p>SistemaVentasFinal - Inicio de sesion</p>
+  </footer>
+</body>
+</html>

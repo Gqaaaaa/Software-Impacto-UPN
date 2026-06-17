@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion de Usuarios</title>
+</head>
+<body>
+  <header>
+    <h1>Sistema de Gestion de Productos</h1>
+    <p>Importaciones Impacto S.A.C.</p>
+  </header>
+
+  <nav aria-label="Navegacion principal">
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="categorias.html">Categorias</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="proveedores.html">Proveedores</a></li>
+      <li><a href="empleados.html">Empleados</a></li>
+      <li><a href="usuarios.html">Usuarios</a></li>
+      <li><a href="roles.html">Roles</a></li>
+      <li><a href="compras.html">Compras</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="inventario.html">Inventario</a></li>
+      <li><a href="reportes.html">Reportes</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <header>
+        <h2>Modulo de Usuarios</h2>
+        <p>Registro y consulta de usuarios del sistema.</p>
+      </header>
+
+      <div>
+        <button type="reset" form="formUsuario">Nuevo</button>
+        <form action="dashboard.html" method="get">
+          <button type="submit">Volver</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <h2>Buscar Usuario</h2>
+
+      <!-- Aqui se conectara la busqueda con el controlador de Usuarios en ASP.NET Core. -->
+      <form action="#" method="get">
+        <div>
+          <label for="buscarUsuario">ID, usuario o ID empleado</label>
+          <input type="search" id="buscarUsuario" name="buscarUsuario" placeholder="Ingrese dato de busqueda">
+        </div>
+
+        <button type="submit">Buscar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Registrar Usuario</h2>
+
+      <!-- Aqui se enviaran los datos al backend ASP.NET Core para registrar o actualizar usuarios. -->
+      <form id="formUsuario" action="#" method="post">
+        <fieldset>
+          <legend>Datos del usuario</legend>
+
+          <div>
+            <label for="id">ID Usuario</label>
+            <input type="text" id="id" name="id" maxlength="100" placeholder="Ejemplo: USR001" required>
+          </div>
+
+          <div>
+            <label for="usuario">Usuario</label>
+            <input type="text" id="usuario" name="usuario" maxlength="50">
+          </div>
+
+          <div>
+            <label for="contrasena">Contrasena</label>
+            <input type="password" id="contrasena" name="contrasena" maxlength="100">
+          </div>
+
+          <div>
+            <label for="estado">Estado</label>
+            <select id="estado" name="estado">
+              <option value="1">Activo</option>
+              <option value="0">Inactivo</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="idEmpleado">ID Empleado</label>
+            <input type="text" id="idEmpleado" name="idEmpleado" maxlength="100" placeholder="Ejemplo: EMP001">
+          </div>
+
+          <div>
+            <label for="idRol">Rol</label>
+            <select id="idRol" name="idRol">
+              <option value="ROL001">Administrador</option>
+              <option value="ROL002">Vendedor</option>
+              <option value="ROL003">Almacen</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <div>
+          <button type="submit">Guardar</button>
+          <button type="button">Eliminar</button>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <h2>Listado de Usuarios</h2>
+
+      <!-- Esta tabla sera llenada luego con datos obtenidos desde ASP.NET Core y SQL Server. -->
+      <table>
+        <caption>Usuarios registrados en el sistema</caption>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Contrasena</th>
+            <th scope="col">Estado</th>
+            <th scope="col">ID Empleado</th>
+            <th scope="col">Rol</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>USR001</td>
+            <td>admin</td>
+            <td>********</td>
+            <td>Activo</td>
+            <td>EMP001</td>
+            <td>Administrador</td>
+            <td>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>USR002</td>
+            <td>ventas01</td>
+            <td>********</td>
+            <td>Activo</td>
+            <td>EMP002</td>
+            <td>Vendedor</td>
+            <td>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>USR003</td>
+            <td>almacen01</td>
+            <td>********</td>
+            <td>Inactivo</td>
+            <td>EMP003</td>
+            <td>Almacen</td>
+            <td>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>SistemaVentasFinal - Modulo de usuarios</p>
+  </footer>
+</body>
+</html>

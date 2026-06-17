@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion de Compras</title>
+</head>
+<body>
+  <header>
+    <h1>Sistema de Gestion de Productos</h1>
+    <p>Importaciones Impacto S.A.C.</p>
+  </header>
+
+  <nav aria-label="Navegacion principal">
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="categorias.html">Categorias</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="proveedores.html">Proveedores</a></li>
+      <li><a href="empleados.html">Empleados</a></li>
+      <li><a href="usuarios.html">Usuarios</a></li>
+      <li><a href="roles.html">Roles</a></li>
+      <li><a href="compras.html">Compras</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="inventario.html">Inventario</a></li>
+      <li><a href="reportes.html">Reportes</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <header>
+        <h2>Modulo de Compras</h2>
+        <p>Registro y consulta de compras realizadas a proveedores.</p>
+      </header>
+
+      <div>
+        <button type="reset" form="formCompra">Nuevo</button>
+        <form action="dashboard.html" method="get">
+          <button type="submit">Volver</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <h2>Buscar Compra</h2>
+
+      <!-- Aqui se conectara la busqueda con el controlador de Compras en ASP.NET Core. -->
+      <form action="#" method="get">
+        <div>
+          <label for="buscarCompra">ID, documento, proveedor o usuario</label>
+          <input type="search" id="buscarCompra" name="buscarCompra" placeholder="Ingrese dato de busqueda">
+        </div>
+
+        <button type="submit">Buscar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Registrar Compra</h2>
+
+      <!-- Aqui se enviaran los datos de la compra al backend ASP.NET Core. -->
+      <form id="formCompra" action="#" method="post">
+        <fieldset>
+          <legend>Datos de la compra</legend>
+
+          <div>
+            <label for="id">ID Compra</label>
+            <input type="text" id="id" name="id" maxlength="100" placeholder="Ejemplo: COMP001" required>
+          </div>
+
+          <div>
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" name="fecha">
+          </div>
+
+          <div>
+            <label for="tipo_documento">Tipo de documento</label>
+            <select id="tipo_documento" name="tipo_documento">
+              <option value="Factura">Factura</option>
+              <option value="Boleta">Boleta</option>
+              <option value="Guia">Guia</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="num_documento">Numero de documento</label>
+            <input type="text" id="num_documento" name="num_documento" maxlength="20">
+          </div>
+
+          <div>
+            <label for="igv">IGV</label>
+            <input type="number" id="igv" name="igv" min="0" step="0.01">
+          </div>
+
+          <div>
+            <label for="estado">Estado</label>
+            <input type="text" id="estado" name="estado" maxlength="20" placeholder="Ejemplo: Registrado">
+          </div>
+
+          <div>
+            <label for="idProveedor">ID Proveedor</label>
+            <input type="text" id="idProveedor" name="idProveedor" maxlength="100" placeholder="Ejemplo: PROV001">
+          </div>
+
+          <div>
+            <label for="idUsuario">ID Usuario</label>
+            <input type="text" id="idUsuario" name="idUsuario" maxlength="100" placeholder="Ejemplo: USR001">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Detalle de compra</legend>
+
+          <!-- Luego este detalle se agregara dinamicamente desde ASP.NET Core o JavaScript. -->
+          <div>
+            <label for="detalle_id">ID Detalle</label>
+            <input type="text" id="detalle_id" name="detalle_id" maxlength="100" placeholder="Ejemplo: DCOMP001">
+          </div>
+
+          <div>
+            <label for="idProducto">ID Producto</label>
+            <input type="text" id="idProducto" name="idProducto" maxlength="100" placeholder="Ejemplo: PROD001">
+          </div>
+
+          <div>
+            <label for="cantidad">Cantidad</label>
+            <input type="number" id="cantidad" name="cantidad" min="1" step="1">
+          </div>
+
+          <div>
+            <label for="precio">Precio</label>
+            <input type="number" id="precio" name="precio" min="0" step="0.01">
+          </div>
+
+          <button type="button">Agregar Producto</button>
+        </fieldset>
+
+        <div>
+          <button type="submit">Guardar</button>
+          <button type="button">Editar</button>
+          <button type="button">Eliminar</button>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <h2>Productos de la Compra</h2>
+
+      <!-- Esta tabla representa el detalle temporal antes de guardar la compra. -->
+      <table>
+        <caption>Detalle simulado de productos comprados</caption>
+        <thead>
+          <tr>
+            <th scope="col">ID Detalle</th>
+            <th scope="col">ID Compra</th>
+            <th scope="col">ID Producto</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DCOMP001</td>
+            <td>COMP001</td>
+            <td>PROD001</td>
+            <td>10</td>
+            <td>25.00</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>DCOMP002</td>
+            <td>COMP001</td>
+            <td>PROD002</td>
+            <td>5</td>
+            <td>35.00</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Listado de Compras</h2>
+
+      <!-- Esta tabla sera llenada luego con datos obtenidos desde ASP.NET Core y SQL Server. -->
+      <table>
+        <caption>Compras registradas en el sistema</caption>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Tipo Documento</th>
+            <th scope="col">Numero Documento</th>
+            <th scope="col">IGV</th>
+            <th scope="col">Estado</th>
+            <th scope="col">ID Proveedor</th>
+            <th scope="col">ID Usuario</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>COMP001</td>
+            <td>2026-06-15</td>
+            <td>Factura</td>
+            <td>F001-000456</td>
+            <td>18.00</td>
+            <td>Registrado</td>
+            <td>PROV001</td>
+            <td>USR001</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>COMP002</td>
+            <td>2026-06-16</td>
+            <td>Boleta</td>
+            <td>B001-000120</td>
+            <td>18.00</td>
+            <td>Registrado</td>
+            <td>PROV002</td>
+            <td>USR003</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>SistemaVentasFinal - Modulo de compras</p>
+  </footer>
+</body>
+</html>

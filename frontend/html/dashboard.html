@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+</head>
+<body>
+  <header>
+    <h1>Sistema de Gestion de Productos</h1>
+    <p>Importaciones Impacto S.A.C.</p>
+  </header>
+
+  <nav aria-label="Navegacion principal">
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="categorias.html">Categorias</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="proveedores.html">Proveedores</a></li>
+      <li><a href="empleados.html">Empleados</a></li>
+      <li><a href="usuarios.html">Usuarios</a></li>
+      <li><a href="roles.html">Roles</a></li>
+      <li><a href="compras.html">Compras</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="inventario.html">Inventario</a></li>
+      <li><a href="reportes.html">Reportes</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <header>
+        <h2>Panel Principal</h2>
+        <p>Resumen general de las operaciones del sistema.</p>
+      </header>
+
+      <div>
+        <button type="button">Nuevo</button>
+        <button type="button">Buscar</button>
+        <form action="index.html" method="get">
+          <button type="submit">Volver</button>
+        </form>
+      </div>
+    </section>
+
+    <section aria-labelledby="resumen-sistema">
+      <h2 id="resumen-sistema">Resumen del Sistema</h2>
+
+      <!-- Estos indicadores se conectaran luego con consultas del backend ASP.NET Core. -->
+      <article>
+        <h3>Productos</h3>
+        <p>Total registrado: 3</p>
+        <a href="productos.html">Ver productos</a>
+      </article>
+
+      <article>
+        <h3>Categorias</h3>
+        <p>Total registrado: 2</p>
+        <a href="categorias.html">Ver categorias</a>
+      </article>
+
+      <article>
+        <h3>Compras</h3>
+        <p>Compras del mes: 5</p>
+        <a href="compras.html">Ver compras</a>
+      </article>
+
+      <article>
+        <h3>Ventas</h3>
+        <p>Ventas del mes: 8</p>
+        <a href="ventas.html">Ver ventas</a>
+      </article>
+
+      <article>
+        <h3>Inventario</h3>
+        <p>Productos con stock bajo: 1</p>
+        <a href="inventario.html">Ver inventario</a>
+      </article>
+
+      <article>
+        <h3>Clientes</h3>
+        <p>Total registrado: 4</p>
+        <a href="clientes.html">Ver clientes</a>
+      </article>
+    </section>
+
+    <section aria-labelledby="busqueda-dashboard">
+      <h2 id="busqueda-dashboard">Busqueda General</h2>
+
+      <!-- Esta busqueda se conectara luego con los controladores del sistema en ASP.NET Core. -->
+      <form action="#" method="get">
+        <div>
+          <label for="buscar">Buscar en el sistema</label>
+          <input type="search" id="buscar" name="buscar" placeholder="Ingrese producto, cliente, proveedor o documento">
+        </div>
+
+        <button type="submit">Buscar</button>
+      </form>
+    </section>
+
+    <section aria-labelledby="ultimos-movimientos">
+      <h2 id="ultimos-movimientos">Ultimos Movimientos</h2>
+
+      <!-- Esta tabla sera llenada luego con datos reales de compras, ventas e inventario. -->
+      <table>
+        <caption>Movimientos recientes del sistema</caption>
+        <thead>
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Modulo</th>
+            <th scope="col">Documento</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2026-06-16</td>
+            <td>Venta</td>
+            <td>BV001-000123</td>
+            <td>Venta de productos de oficina</td>
+            <td>Registrado</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2026-06-15</td>
+            <td>Compra</td>
+            <td>F001-000456</td>
+            <td>Ingreso de productos al almacen</td>
+            <td>Registrado</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2026-06-14</td>
+            <td>Inventario</td>
+            <td>INV-00001</td>
+            <td>Revision de stock de productos</td>
+            <td>Pendiente</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="accesos-rapidos">
+      <h2 id="accesos-rapidos">Accesos Rapidos</h2>
+
+      <ul>
+        <li><a href="productos.html">Registrar producto</a></li>
+        <li><a href="categorias.html">Registrar categoria</a></li>
+        <li><a href="compras.html">Registrar compra</a></li>
+        <li><a href="ventas.html">Registrar venta</a></li>
+        <li><a href="inventario.html">Consultar inventario</a></li>
+        <li><a href="reportes.html">Consultar reportes</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>SistemaVentasFinal - Dashboard</p>
+  </footer>
+</body>
+</html>

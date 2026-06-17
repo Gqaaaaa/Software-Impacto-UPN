@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion de Proveedores</title>
+</head>
+<body>
+  <header>
+    <h1>Sistema de Gestion de Productos</h1>
+    <p>Importaciones Impacto S.A.C.</p>
+  </header>
+
+  <nav aria-label="Navegacion principal">
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="categorias.html">Categorias</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="proveedores.html">Proveedores</a></li>
+      <li><a href="empleados.html">Empleados</a></li>
+      <li><a href="usuarios.html">Usuarios</a></li>
+      <li><a href="roles.html">Roles</a></li>
+      <li><a href="compras.html">Compras</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="inventario.html">Inventario</a></li>
+      <li><a href="reportes.html">Reportes</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <header>
+        <h2>Modulo de Proveedores</h2>
+        <p>Registro y consulta de proveedores de la empresa.</p>
+      </header>
+
+      <div>
+        <button type="reset" form="formProveedor">Nuevo</button>
+        <form action="dashboard.html" method="get">
+          <button type="submit">Volver</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <h2>Buscar Proveedor</h2>
+
+      <!-- Aqui se conectara la busqueda con el controlador de Proveedores en ASP.NET Core. -->
+      <form action="#" method="get">
+        <div>
+          <label for="buscarProveedor">ID, razon social o RUC</label>
+          <input type="search" id="buscarProveedor" name="buscarProveedor" placeholder="Ingrese dato de busqueda">
+        </div>
+
+        <button type="submit">Buscar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Registrar Proveedor</h2>
+
+      <!-- Aqui se enviaran los datos al backend ASP.NET Core para registrar o actualizar proveedores. -->
+      <form id="formProveedor" action="#" method="post">
+        <fieldset>
+          <legend>Datos del proveedor</legend>
+
+          <div>
+            <label for="id">ID Proveedor</label>
+            <input type="text" id="id" name="id" maxlength="100" placeholder="Ejemplo: PROV001" required>
+          </div>
+
+          <div>
+            <label for="razonSocial">Razon Social</label>
+            <input type="text" id="razonSocial" name="razonSocial" maxlength="150">
+          </div>
+
+          <div>
+            <label for="ruc">RUC</label>
+            <input type="text" id="ruc" name="ruc" maxlength="11" placeholder="Ingrese 11 digitos">
+          </div>
+
+          <div>
+            <label for="telefono">Telefono</label>
+            <input type="tel" id="telefono" name="telefono" maxlength="15">
+          </div>
+
+          <div>
+            <label for="direccion">Direccion</label>
+            <input type="text" id="direccion" name="direccion" maxlength="150">
+          </div>
+        </fieldset>
+
+        <div>
+          <button type="submit">Guardar</button>
+          <button type="button">Editar</button>
+          <button type="button">Eliminar</button>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <h2>Listado de Proveedores</h2>
+
+      <!-- Esta tabla sera llenada luego con datos obtenidos desde ASP.NET Core y SQL Server. -->
+      <table>
+        <caption>Proveedores registrados en el sistema</caption>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Razon Social</th>
+            <th scope="col">RUC</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PROV001</td>
+            <td>Tecnologia Andina S.A.C.</td>
+            <td>20604578123</td>
+            <td>014567890</td>
+            <td>Av. Republica de Panama 3500, San Isidro</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>PROV002</td>
+            <td>Importadora Digital Peru S.A.C.</td>
+            <td>20598765431</td>
+            <td>017894561</td>
+            <td>Av. La Marina 1200, San Miguel</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>PROV003</td>
+            <td>Soluciones Electronicas del Sur S.R.L.</td>
+            <td>20451236987</td>
+            <td>016543210</td>
+            <td>Jr. Paruro 845, Lima</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>SistemaVentasFinal - Modulo de proveedores</p>
+  </footer>
+</body>
+</html>

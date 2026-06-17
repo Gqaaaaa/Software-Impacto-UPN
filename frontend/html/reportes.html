@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reportes</title>
+</head>
+<body>
+  <header>
+    <h1>Sistema de Gestion de Productos</h1>
+    <p>Importaciones Impacto S.A.C.</p>
+  </header>
+
+  <nav aria-label="Navegacion principal">
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="categorias.html">Categorias</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="proveedores.html">Proveedores</a></li>
+      <li><a href="empleados.html">Empleados</a></li>
+      <li><a href="usuarios.html">Usuarios</a></li>
+      <li><a href="roles.html">Roles</a></li>
+      <li><a href="compras.html">Compras</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="inventario.html">Inventario</a></li>
+      <li><a href="reportes.html">Reportes</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <header>
+        <h2>Modulo de Reportes</h2>
+        <p>Consulta de reportes basicos de compras, ventas e inventario.</p>
+      </header>
+
+      <div>
+        <button type="reset" form="formReporte">Nuevo</button>
+        <form action="dashboard.html" method="get">
+          <button type="submit">Volver</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <h2>Filtros del Reporte</h2>
+
+      <!-- Aqui se conectaran los filtros con los servicios de reportes en ASP.NET Core. -->
+      <form id="formReporte" action="#" method="get">
+        <fieldset>
+          <legend>Parametros de consulta</legend>
+
+          <div>
+            <label for="tipoReporte">Tipo de reporte</label>
+            <select id="tipoReporte" name="tipoReporte">
+              <option value="Ventas">Ventas</option>
+              <option value="Compras">Compras</option>
+              <option value="Inventario">Inventario</option>
+              <option value="Productos">Productos</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="fechaInicio">Fecha inicio</label>
+            <input type="date" id="fechaInicio" name="fechaInicio">
+          </div>
+
+          <div>
+            <label for="fechaFin">Fecha fin</label>
+            <input type="date" id="fechaFin" name="fechaFin">
+          </div>
+
+          <div>
+            <label for="estado">Estado</label>
+            <input type="text" id="estado" name="estado" maxlength="20" placeholder="Ejemplo: Registrado">
+          </div>
+
+          <div>
+            <label for="buscar">Buscar</label>
+            <input type="search" id="buscar" name="buscar" placeholder="Ingrese producto, documento, cliente o proveedor">
+          </div>
+        </fieldset>
+
+        <button type="submit">Buscar</button>
+        <button type="button">Guardar</button>
+        <button type="button">Editar</button>
+        <button type="button">Eliminar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Resumen General</h2>
+
+      <!-- Estos valores se calcularan luego desde SQL Server mediante ASP.NET Core. -->
+      <article>
+        <h3>Total de ventas</h3>
+        <p>2</p>
+      </article>
+
+      <article>
+        <h3>Total de compras</h3>
+        <p>2</p>
+      </article>
+
+      <article>
+        <h3>Productos registrados</h3>
+        <p>3</p>
+      </article>
+
+      <article>
+        <h3>Productos con stock bajo</h3>
+        <p>1</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Reporte de Ventas</h2>
+
+      <!-- Esta tabla se llenara luego con datos de Venta y Detalle_Venta. -->
+      <table>
+        <caption>Ventas registradas por periodo</caption>
+        <thead>
+          <tr>
+            <th scope="col">ID Venta</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Documento</th>
+            <th scope="col">ID Cliente</th>
+            <th scope="col">ID Usuario</th>
+            <th scope="col">Estado</th>
+            <th scope="col">IGV</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>VENT001</td>
+            <td>2026-06-16</td>
+            <td>BV001-000123</td>
+            <td>CLI001</td>
+            <td>USR002</td>
+            <td>Registrado</td>
+            <td>18.00</td>
+          </tr>
+          <tr>
+            <td>VENT002</td>
+            <td>2026-06-16</td>
+            <td>F002-000089</td>
+            <td>CLI002</td>
+            <td>USR001</td>
+            <td>Registrado</td>
+            <td>18.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Reporte de Compras</h2>
+
+      <!-- Esta tabla se llenara luego con datos de Compra y Detalle_Compra. -->
+      <table>
+        <caption>Compras registradas por periodo</caption>
+        <thead>
+          <tr>
+            <th scope="col">ID Compra</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Documento</th>
+            <th scope="col">ID Proveedor</th>
+            <th scope="col">ID Usuario</th>
+            <th scope="col">Estado</th>
+            <th scope="col">IGV</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>COMP001</td>
+            <td>2026-06-15</td>
+            <td>F001-000456</td>
+            <td>PROV001</td>
+            <td>USR001</td>
+            <td>Registrado</td>
+            <td>18.00</td>
+          </tr>
+          <tr>
+            <td>COMP002</td>
+            <td>2026-06-16</td>
+            <td>B001-000120</td>
+            <td>PROV002</td>
+            <td>USR003</td>
+            <td>Registrado</td>
+            <td>18.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Reporte de Inventario</h2>
+
+      <!-- Esta tabla se llenara luego con datos de Producto. -->
+      <table>
+        <caption>Estado actual del inventario</caption>
+        <thead>
+          <tr>
+            <th scope="col">ID Producto</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">ID Categoria</th>
+            <th scope="col">Precio Compra</th>
+            <th scope="col">Precio Venta</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Estado Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PROD001</td>
+            <td>Mouse inalambrico</td>
+            <td>CAT001</td>
+            <td>25.00</td>
+            <td>39.90</td>
+            <td>30</td>
+            <td>Disponible</td>
+          </tr>
+          <tr>
+            <td>PROD002</td>
+            <td>Teclado multimedia</td>
+            <td>CAT001</td>
+            <td>35.00</td>
+            <td>55.00</td>
+            <td>18</td>
+            <td>Disponible</td>
+          </tr>
+          <tr>
+            <td>PROD003</td>
+            <td>Cable HDMI</td>
+            <td>CAT002</td>
+            <td>12.50</td>
+            <td>24.90</td>
+            <td>5</td>
+            <td>Stock bajo</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>SistemaVentasFinal - Modulo de reportes</p>
+  </footer>
+</body>
+</html>

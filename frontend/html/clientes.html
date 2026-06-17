@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion de Clientes</title>
+</head>
+<body>
+  <header>
+    <h1>Sistema de Gestion de Productos</h1>
+    <p>Importaciones Impacto S.A.C.</p>
+  </header>
+
+  <nav aria-label="Navegacion principal">
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="categorias.html">Categorias</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="proveedores.html">Proveedores</a></li>
+      <li><a href="empleados.html">Empleados</a></li>
+      <li><a href="usuarios.html">Usuarios</a></li>
+      <li><a href="roles.html">Roles</a></li>
+      <li><a href="compras.html">Compras</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="inventario.html">Inventario</a></li>
+      <li><a href="reportes.html">Reportes</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <header>
+        <h2>Modulo de Clientes</h2>
+        <p>Registro y consulta de clientes de la empresa.</p>
+      </header>
+
+      <div>
+        <button type="reset" form="formCliente">Nuevo</button>
+        <form action="dashboard.html" method="get">
+          <button type="submit">Volver</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <h2>Buscar Cliente</h2>
+
+      <!-- Aqui se conectara la busqueda con el controlador de Clientes en ASP.NET Core. -->
+      <form action="#" method="get">
+        <div>
+          <label for="buscarCliente">ID, nombres, apellidos o DNI</label>
+          <input type="search" id="buscarCliente" name="buscarCliente" placeholder="Ingrese dato de busqueda">
+        </div>
+
+        <button type="submit">Buscar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Registrar Cliente</h2>
+
+      <!-- Aqui se enviaran los datos al backend ASP.NET Core para registrar o actualizar clientes. -->
+      <form id="formCliente" action="#" method="post">
+        <fieldset>
+          <legend>Datos del cliente</legend>
+
+          <div>
+            <label for="id">ID Cliente</label>
+            <input type="text" id="id" name="id" maxlength="100" placeholder="Ejemplo: CLI001" required>
+          </div>
+
+          <div>
+            <label for="nombres">Nombres</label>
+            <input type="text" id="nombres" name="nombres" maxlength="100">
+          </div>
+
+          <div>
+            <label for="apellidos">Apellidos</label>
+            <input type="text" id="apellidos" name="apellidos" maxlength="100">
+          </div>
+
+          <div>
+            <label for="dni">DNI</label>
+            <input type="text" id="dni" name="dni" maxlength="8" placeholder="Ingrese 8 digitos">
+          </div>
+
+          <div>
+            <label for="telefono">Telefono</label>
+            <input type="tel" id="telefono" name="telefono" maxlength="15">
+          </div>
+
+          <div>
+            <label for="direccion">Direccion</label>
+            <input type="text" id="direccion" name="direccion" maxlength="150">
+          </div>
+        </fieldset>
+
+        <div>
+          <button type="submit">Guardar</button>
+          <button type="button">Editar</button>
+          <button type="button">Eliminar</button>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <h2>Listado de Clientes</h2>
+
+      <!-- Esta tabla sera llenada luego con datos obtenidos desde ASP.NET Core y SQL Server. -->
+      <table>
+        <caption>Clientes registrados en el sistema</caption>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">DNI</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CLI001</td>
+            <td>Carlos</td>
+            <td>Ramirez Torres</td>
+            <td>45871236</td>
+            <td>987654321</td>
+            <td>Av. Benavides 123, Miraflores</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CLI002</td>
+            <td>Mariana</td>
+            <td>Lopez Garcia</td>
+            <td>70451289</td>
+            <td>956123478</td>
+            <td>Calle Schell 456, Miraflores</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>CLI003</td>
+            <td>Jorge</td>
+            <td>Castillo Rojas</td>
+            <td>61239874</td>
+            <td>945678123</td>
+            <td>Av. Arequipa 1500, Lima</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>SistemaVentasFinal - Modulo de clientes</p>
+  </footer>
+</body>
+</html>

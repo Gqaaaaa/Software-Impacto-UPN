@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion de Empleados</title>
+</head>
+<body>
+  <header>
+    <h1>Sistema de Gestion de Productos</h1>
+    <p>Importaciones Impacto S.A.C.</p>
+  </header>
+
+  <nav aria-label="Navegacion principal">
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="categorias.html">Categorias</a></li>
+      <li><a href="clientes.html">Clientes</a></li>
+      <li><a href="proveedores.html">Proveedores</a></li>
+      <li><a href="empleados.html">Empleados</a></li>
+      <li><a href="usuarios.html">Usuarios</a></li>
+      <li><a href="roles.html">Roles</a></li>
+      <li><a href="compras.html">Compras</a></li>
+      <li><a href="ventas.html">Ventas</a></li>
+      <li><a href="inventario.html">Inventario</a></li>
+      <li><a href="reportes.html">Reportes</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <header>
+        <h2>Modulo de Empleados</h2>
+        <p>Consulta de empleados registrados en la empresa.</p>
+      </header>
+
+      <div>
+        <a href="usuarios.html">Registrar Usuario</a>
+        <form action="dashboard.html" method="get">
+          <button type="submit">Volver</button>
+        </form>
+      </div>
+    </section>
+
+    <section>
+      <h2>Buscar Empleado</h2>
+
+      <!-- Aqui se conectara la busqueda con el controlador de Empleados en ASP.NET Core. -->
+      <form action="#" method="get">
+        <div>
+          <label for="buscarEmpleado">ID, nombres, apellidos o DNI</label>
+          <input type="search" id="buscarEmpleado" name="buscarEmpleado" placeholder="Ingrese dato de busqueda">
+        </div>
+
+        <button type="submit">Buscar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Listado de Empleados</h2>
+
+      <!-- Esta tabla sera llenada luego con datos obtenidos desde ASP.NET Core y SQL Server. -->
+      <table>
+        <caption>Empleados registrados en el sistema</caption>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">DNI</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>EMP001</td>
+            <td>Ana</td>
+            <td>Torres Medina</td>
+            <td>47258963</td>
+            <td>987123456</td>
+            <td>Av. Larco 780, Miraflores</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>EMP002</td>
+            <td>Ricardo</td>
+            <td>Vargas Salazar</td>
+            <td>70569841</td>
+            <td>956874123</td>
+            <td>Av. Angamos 950, Surquillo</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>EMP003</td>
+            <td>Lucia</td>
+            <td>Herrera Campos</td>
+            <td>61874529</td>
+            <td>945123678</td>
+            <td>Calle Alcanfores 320, Miraflores</td>
+            <td>
+              <button type="button">Editar</button>
+              <button type="button">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>SistemaVentasFinal - Modulo de empleados</p>
+  </footer>
+</body>
+</html>

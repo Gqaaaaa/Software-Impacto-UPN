@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restablecer contrase&ntilde;a</title>
+</head>
+<body>
+  <header>
+    <h1>Sistema de Gestion de Productos</h1>
+    <p>Importaciones Impacto S.A.C.</p>
+  </header>
+
+  <main>
+    <section>
+      <header>
+        <h2>Restablecer contrase&ntilde;a</h2>
+        <p>Ingrese su usuario o correo registrado y escriba una nueva contrase&ntilde;a.</p>
+      </header>
+
+      <!-- Aqui se conectara el restablecimiento de contrasena con el controlador de Usuarios en ASP.NET Core. -->
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Datos de restablecimiento</legend>
+
+          <div>
+            <label for="usuario">Usuario o correo electr&oacute;nico</label>
+            <input type="text" id="usuario" name="usuario" maxlength="100" placeholder="Ingrese usuario o correo" required>
+          </div>
+
+          <div>
+            <label for="nuevaContrasena">Nueva contrase&ntilde;a</label>
+            <input type="password" id="nuevaContrasena" name="nuevaContrasena" maxlength="100" required>
+          </div>
+
+          <div>
+            <label for="confirmarNuevaContrasena">Confirmar nueva contrase&ntilde;a</label>
+            <input type="password" id="confirmarNuevaContrasena" name="confirmarNuevaContrasena" maxlength="100" required>
+          </div>
+        </fieldset>
+
+        <div>
+          <button type="submit">Guardar nueva contrase&ntilde;a</button>
+        </div>
+      </form>
+
+      <nav aria-label="Volver al inicio">
+        <form action="index.html" method="get">
+          <button type="submit">Volver</button>
+        </form>
+      </nav>
+    </section>
+  </main>
+
+  <footer>
+    <p>SistemaVentasFinal - Restablecer contrase&ntilde;a</p>
+  </footer>
+</body>
+</html>

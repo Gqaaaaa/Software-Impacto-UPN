@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Impacto.Inventory.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+943c6fe69809ee052611ba74caff8c6201314727")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f2050a7df14ed7d549b9e411972a2061bb2b438")]
 [assembly: System.Reflection.AssemblyProductAttribute("Impacto.Inventory.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Impacto.Inventory.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

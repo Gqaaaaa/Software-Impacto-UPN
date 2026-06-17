@@ -10,7 +10,7 @@ public class ImpactoDbContext : DbContext
     }
 
     public DbSet<Categoria> Categorias { get; set; } = null!;
-    public DbSet<Producto> Productos => Set<Producto>();
+    public DbSet<Producto> Productos { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

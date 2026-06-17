@@ -10,7 +10,7 @@
         "projectUniqueName": "C:\\Users\\samuel\\Documents\\Software Impacto - UPN\\backend\\Impacto.Inventory.Api\\Impacto.Inventory.Api.csproj",
         "projectName": "Impacto.Inventory.Api",
         "projectPath": "C:\\Users\\samuel\\Documents\\Software Impacto - UPN\\backend\\Impacto.Inventory.Api\\Impacto.Inventory.Api.csproj",
-        "packagesPath": "C:\\Users\\CodexSandboxOffline\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\samuel\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\samuel\\Documents\\Software Impacto - UPN\\backend\\Impacto.Inventory.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [

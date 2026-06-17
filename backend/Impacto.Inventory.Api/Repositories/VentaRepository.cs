@@ -42,6 +42,37 @@ public class VentaRepository : IVentaRepository
         return venta;
     }
 
+    public async Task<Venta> CreateWithStockDecreaseAsync(Venta venta, Dictionary<string, int> cantidadesPorProducto)
+    {
+        await using var transaction = await _context.Database.BeginTransactionAsync();
+
+        _context.Ventas.Add(venta);
+
+        foreach (var item in cantidadesPorProducto)
+        {
+            var producto = await _context.Productos
+                .FirstOrDefaultAsync(producto => producto.Id == item.Key);
+
+            if (producto is null)
+            {
+                throw new InvalidOperationException("Uno de los productos indicados no existe.");
+            }
+
+            var stockActual = producto.Stock ?? 0;
+
+            if (stockActual < item.Value)
+            {
+                throw new InvalidOperationException("No hay stock suficiente para uno de los productos.");
+            }
+
+            producto.Stock = stockActual - item.Value;
+        }
+
+        await _context.SaveChangesAsync();
+        await transaction.CommitAsync();
+        return venta;
+    }
+
     public async Task<bool> DeleteAsync(string id)
     {
         var venta = await _context.Ventas

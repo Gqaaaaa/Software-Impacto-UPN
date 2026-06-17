@@ -137,3 +137,10 @@ C:\Users\samuel\Documents\Software Impacto - UPN\backend\Impacto.Inventory.Api\o
 C:\Users\samuel\Documents\Software Impacto - UPN\backend\Impacto.Inventory.Api\obj\Debug\net8.0\Impacto.Inventory.Api.pdb
 C:\Users\samuel\Documents\Software Impacto - UPN\backend\Impacto.Inventory.Api\obj\Debug\net8.0\Impacto.Inventory.Api.genruntimeconfig.cache
 C:\Users\samuel\Documents\Software Impacto - UPN\backend\Impacto.Inventory.Api\obj\Debug\net8.0\ref\Impacto.Inventory.Api.dll
+C:\Users\samuel\AppData\Local\Temp\impacto-build-check\appsettings.json
+C:\Users\samuel\AppData\Local\Temp\impacto-build-check\Impacto.Inventory.Api.staticwebassets.endpoints.json
+C:\Users\samuel\AppData\Local\Temp\impacto-build-check\Impacto.Inventory.Api.exe
+C:\Users\samuel\AppData\Local\Temp\impacto-build-check\Impacto.Inventory.Api.deps.json
+C:\Users\samuel\AppData\Local\Temp\impacto-build-check\Impacto.Inventory.Api.runtimeconfig.json
+C:\Users\samuel\AppData\Local\Temp\impacto-build-check\Impacto.Inventory.Api.dll
+C:\Users\samuel\AppData\Local\Temp\impacto-build-check\Impacto.Inventory.Api.pdb

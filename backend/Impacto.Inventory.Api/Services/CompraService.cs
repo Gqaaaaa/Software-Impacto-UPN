@@ -64,8 +64,8 @@ public class CompraService : ICompraService
             }).ToList()
         };
 
-        // Pendiente: el aumento de stock se implementara en el bloque de inventario.
-        var compraCreada = await _compraRepository.CreateAsync(compra);
+        var cantidadesPorProducto = ObtenerCantidadesPorProducto(dto.Detalles);
+        var compraCreada = await _compraRepository.CreateWithStockIncreaseAsync(compra, cantidadesPorProducto);
         var compraConRelaciones = await _compraRepository.GetByIdAsync(compraCreada.Id);
         return ConvertirAReadDto(compraConRelaciones ?? compraCreada);
     }
@@ -201,6 +201,14 @@ public class CompraService : ICompraService
     private static string? LimpiarTexto(string? valor)
     {
         return string.IsNullOrWhiteSpace(valor) ? null : valor.Trim();
+    }
+
+    private static Dictionary<string, int> ObtenerCantidadesPorProducto(List<DetalleCompraCreateDto> detalles)
+    {
+        return detalles
+            .Where(detalle => !string.IsNullOrWhiteSpace(detalle.IdProducto) && detalle.Cantidad.HasValue)
+            .GroupBy(detalle => detalle.IdProducto!.Trim())
+            .ToDictionary(grupo => grupo.Key, grupo => grupo.Sum(detalle => detalle.Cantidad!.Value));
     }
 
     private static void ValidarLongitud(string? valor, int maximo, string mensaje)

@@ -42,6 +42,30 @@ public class CompraRepository : ICompraRepository
         return compra;
     }
 
+    public async Task<Compra> CreateWithStockIncreaseAsync(Compra compra, Dictionary<string, int> cantidadesPorProducto)
+    {
+        await using var transaction = await _context.Database.BeginTransactionAsync();
+
+        _context.Compras.Add(compra);
+
+        foreach (var item in cantidadesPorProducto)
+        {
+            var producto = await _context.Productos
+                .FirstOrDefaultAsync(producto => producto.Id == item.Key);
+
+            if (producto is null)
+            {
+                throw new InvalidOperationException("Uno de los productos indicados no existe.");
+            }
+
+            producto.Stock = (producto.Stock ?? 0) + item.Value;
+        }
+
+        await _context.SaveChangesAsync();
+        await transaction.CommitAsync();
+        return compra;
+    }
+
     public async Task<bool> DeleteAsync(string id)
     {
         var compra = await _context.Compras

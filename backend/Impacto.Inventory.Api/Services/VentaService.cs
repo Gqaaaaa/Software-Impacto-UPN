@@ -64,8 +64,10 @@ public class VentaService : IVentaService
             }).ToList()
         };
 
-        // Pendiente: el descuento de stock se implementara en el bloque de inventario.
-        var ventaCreada = await _ventaRepository.CreateAsync(venta);
+        var cantidadesPorProducto = ObtenerCantidadesPorProducto(dto.Detalles);
+        await ValidarStockSuficiente(cantidadesPorProducto);
+
+        var ventaCreada = await _ventaRepository.CreateWithStockDecreaseAsync(venta, cantidadesPorProducto);
         var ventaConRelaciones = await _ventaRepository.GetByIdAsync(ventaCreada.Id);
         return ConvertirAReadDto(ventaConRelaciones ?? ventaCreada);
     }
@@ -212,6 +214,34 @@ public class VentaService : IVentaService
     private static string? LimpiarTexto(string? valor)
     {
         return string.IsNullOrWhiteSpace(valor) ? null : valor.Trim();
+    }
+
+    private async Task ValidarStockSuficiente(Dictionary<string, int> cantidadesPorProducto)
+    {
+        foreach (var item in cantidadesPorProducto)
+        {
+            var producto = await _productoRepository.GetByIdAsync(item.Key);
+
+            if (producto is null)
+            {
+                throw new ArgumentException("Uno de los productos indicados no existe.");
+            }
+
+            var stockActual = producto.Stock ?? 0;
+
+            if (stockActual < item.Value)
+            {
+                throw new InvalidOperationException($"No hay stock suficiente para el producto {producto.Nombre ?? producto.Id}.");
+            }
+        }
+    }
+
+    private static Dictionary<string, int> ObtenerCantidadesPorProducto(List<DetalleVentaCreateDto> detalles)
+    {
+        return detalles
+            .Where(detalle => !string.IsNullOrWhiteSpace(detalle.IdProducto) && detalle.Cantidad.HasValue)
+            .GroupBy(detalle => detalle.IdProducto!.Trim())
+            .ToDictionary(grupo => grupo.Key, grupo => grupo.Sum(detalle => detalle.Cantidad!.Value));
     }
 
     private static void ValidarLongitud(string? valor, int maximo, string mensaje)

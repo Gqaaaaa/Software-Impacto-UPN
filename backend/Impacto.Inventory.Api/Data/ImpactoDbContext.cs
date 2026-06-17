@@ -17,6 +17,8 @@ public class ImpactoDbContext : DbContext
     public DbSet<Rol> Roles { get; set; } = null!;
     public DbSet<Usuario> Usuarios { get; set; } = null!;
     public DbSet<UsuarioRol> UsuarioRoles { get; set; } = null!;
+    public DbSet<Compra> Compras { get; set; } = null!;
+    public DbSet<DetalleCompra> DetallesCompra { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -275,6 +277,94 @@ public class ImpactoDbContext : DbContext
             entity.HasOne(e => e.Rol)
                 .WithMany()
                 .HasForeignKey(e => e.IdRol);
+        });
+
+        modelBuilder.Entity<Compra>(entity =>
+        {
+            entity.ToTable("Compra");
+            entity.HasKey(e => e.Id);
+
+            entity.Property(e => e.Id)
+                .HasColumnName("id")
+                .HasMaxLength(100)
+                .IsUnicode(false);
+
+            entity.Property(e => e.Fecha)
+                .HasColumnName("fecha")
+                .HasColumnType("date");
+
+            entity.Property(e => e.TipoDocumento)
+                .HasColumnName("tipo_documento")
+                .HasMaxLength(20)
+                .IsUnicode(false);
+
+            entity.Property(e => e.NumDocumento)
+                .HasColumnName("num_documento")
+                .HasMaxLength(20)
+                .IsUnicode(false);
+
+            entity.Property(e => e.Igv)
+                .HasColumnName("igv")
+                .HasColumnType("decimal(10,2)");
+
+            entity.Property(e => e.Estado)
+                .HasColumnName("estado")
+                .HasMaxLength(20)
+                .IsUnicode(false);
+
+            entity.Property(e => e.IdProveedor)
+                .HasColumnName("idProveedor")
+                .HasMaxLength(100)
+                .IsUnicode(false);
+
+            entity.Property(e => e.IdUsuario)
+                .HasColumnName("idUsuario")
+                .HasMaxLength(100)
+                .IsUnicode(false);
+
+            entity.HasOne(e => e.Proveedor)
+                .WithMany()
+                .HasForeignKey(e => e.IdProveedor);
+
+            entity.HasOne(e => e.Usuario)
+                .WithMany()
+                .HasForeignKey(e => e.IdUsuario);
+        });
+
+        modelBuilder.Entity<DetalleCompra>(entity =>
+        {
+            entity.ToTable("Detalle_Compra");
+            entity.HasKey(e => e.Id);
+
+            entity.Property(e => e.Id)
+                .HasColumnName("id")
+                .HasMaxLength(100)
+                .IsUnicode(false);
+
+            entity.Property(e => e.IdCompra)
+                .HasColumnName("idCompra")
+                .HasMaxLength(100)
+                .IsUnicode(false);
+
+            entity.Property(e => e.IdProducto)
+                .HasColumnName("idProducto")
+                .HasMaxLength(100)
+                .IsUnicode(false);
+
+            entity.Property(e => e.Cantidad)
+                .HasColumnName("cantidad");
+
+            entity.Property(e => e.Precio)
+                .HasColumnName("precio")
+                .HasColumnType("decimal(10,2)");
+
+            entity.HasOne(e => e.Compra)
+                .WithMany(e => e.Detalles)
+                .HasForeignKey(e => e.IdCompra);
+
+            entity.HasOne(e => e.Producto)
+                .WithMany()
+                .HasForeignKey(e => e.IdProducto);
         });
     }
 }
